@@ -1,21 +1,22 @@
 package com.alice.WorkoutDiary.controller;
 
 import com.alice.WorkoutDiary.dao.UserDAO;
-import com.alice.WorkoutDiary.handler.UserHandler;
 import com.alice.WorkoutDiary.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
 
-    UserDAO userHandler = new UserHandler();
+    @Autowired
+    UserDAO userHandler;
 
     @RequestMapping(value = "/")
     public String returnAString() {
          return "first page with some text";
     }
 
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    @RequestMapping(value = "/getUser")
     public User returnUser(@RequestParam(required = true, value="id") int id) {
         return userHandler.getUser(id);
     }

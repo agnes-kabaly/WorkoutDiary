@@ -3,12 +3,14 @@ package com.alice.WorkoutDiary.handler;
 import com.alice.WorkoutDiary.dao.UserDAO;
 import com.alice.WorkoutDiary.model.User;
 import com.alice.WorkoutDiary.util.DBConnector;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@Repository
 public class UserHandler implements UserDAO {
 
     Connection connection = DBConnector.getConnection(DBConnector.DatabaseName.WorkoutDiaryDB);
@@ -32,6 +34,8 @@ public class UserHandler implements UserDAO {
 
     @Override
     public User getUser(int id) {
+
+        System.out.println(id);
 
         String query = "SELECT UserId, Username, Email FROM Users WHERE Users.UserId =" + id;
 

@@ -2,15 +2,23 @@ package com.alice.WorkoutDiary.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/*import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity*/
 public class User {
 
-    private int userId;
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    public int userId;
     @JsonProperty
-    private String username;
+    public String username;
     @JsonProperty
-    private String email;
+    public String email;
     @JsonProperty
-    private String password;
+    public String password;
 
     public User() {
     }

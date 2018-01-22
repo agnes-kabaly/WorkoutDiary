@@ -1,10 +1,10 @@
 package com.alice.WorkoutDiary.dao;
 
-import com.alice.WorkoutDiary.model.Workout;
+import com.alice.WorkoutDiary.model.WorkoutDay;
 
 public interface WorkoutDAO {
 
-    void saveWorkoutDay(Workout wD);
-    Workout getWorkoutDay(int id);
+    void saveWorkoutDay(WorkoutDay wD);
+    WorkoutDay getWorkoutDay(int id);
 
 }
