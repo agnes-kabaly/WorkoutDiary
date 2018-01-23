@@ -4,7 +4,7 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
     <persistence-unit name="hibernatePU">
-        <jta-data-source>java:/lmsDatabase</jta-data-source>
+        <jta-data-source>java:/WorkoutDiary</jta-data-source>
         <class>com.alice.WorkoutDiary.model.User</class>
         <class>com.alice.WorkoutDiary.model.WorkoutDay</class>
         <properties>
