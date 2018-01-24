@@ -1,54 +1,71 @@
 package com.alice.WorkoutDiary.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int userId;
+    @Column(name = "user_id")
+    private int userId;
     @JsonProperty
-    public String username;
+    private String userName;
     @JsonProperty
-    public String email;
+    private String email;
     @JsonProperty
-    public String password;
+    private String password;
+
+    private String regDate;
+
+    private String image;
+
+    @JsonIgnoreProperties("user")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "user_day",
+        joinColumns = {@JoinColumn(name = "day_id") },
+        inverseJoinColumns = { @JoinColumn(name = "user_id") })
+    private Set<WorkoutDay> days = new HashSet<>();
 
     public User() {
+
     }
 
-    public User(String username, String email, String password) {
-        this.username = username;
+    public User(String userName, String email, String password, String regDate) {
+        this.userName = userName;
         this.email = email;
         this.password = password;
+        this.regDate = regDate;
     }
 
-    public User(int userId, String username, String email, String password) {
+    public User(int userId, String userName, String email, String password, String regDate, String image) {
         this.userId = userId;
-        this.username = username;
+        this.userName = userName;
         this.email = email;
         this.password = password;
+        this.regDate = regDate;
+        this.image = image;
     }
 
-    public User(int userId, String username, String email) {
+    public User(int userId, String userName, String email) {
         this.userId = userId;
-        this.username = username;
+        this.userName = userName;
         this.email = email;
     }
 
-    public User(String username, String password) {
-        this.username = username;
+    public User(String email, String password) {
+        this.email = email;
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
     public String getEmail() {
@@ -59,8 +76,8 @@ public class User {
         return password;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public void setEmail(String email) {
@@ -71,13 +88,50 @@ public class User {
         this.password = password;
     }
 
+    public String getRegDate() {
+        return regDate;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setRegDate(String regDate) {
+        this.regDate = regDate;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Set<WorkoutDay> getDays() {
+        return days;
+    }
+
+    @JsonDeserialize(as = HashSet.class)
+    public void setDays(Set<WorkoutDay> days) {
+        this.days = days;
+    }
+
+    public void addDays(WorkoutDay day) {
+        this.days.add(day);
+    }
+
+    public void deleteDay(WorkoutDay day) {
+        this.days.remove(day);
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "userId=" + userId +
-                ", username='" + username + '\'' +
+                ", userName='" + userName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", regDate='" + regDate + '\'' +
+                ", image='" + image + '\'' +
+                ", days=" + days +
                 '}';
     }
+
 }
