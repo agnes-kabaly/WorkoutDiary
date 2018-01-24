@@ -1,15 +1,21 @@
 package com.alice.WorkoutDiary.controller;
 
 import com.alice.WorkoutDiary.dao.UserDAO;
+import com.alice.WorkoutDiary.handler.UserRepository;
 import com.alice.WorkoutDiary.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.transaction.Transactional;
 
 @RestController
 public class UserController {
 
     @Autowired
     UserDAO userHandler;
+
+    @Autowired
+    UserRepository userRepository;
 
     @RequestMapping(value = "/")
     public String returnAString() {
@@ -30,6 +36,11 @@ public class UserController {
     public void saveUser(@RequestBody User user) {
         userHandler.saveUser(user);
         System.out.println("I GOT THE USER: " + user);
+    }
+
+    @RequestMapping(value = "/findByName")
+    public User findByUserName(@RequestParam(required = true, value = "user_name") String user_name){
+        return userRepository.findByUserName(user_name);
     }
 
 }
