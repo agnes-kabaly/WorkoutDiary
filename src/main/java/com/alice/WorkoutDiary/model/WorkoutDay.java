@@ -20,8 +20,8 @@ public class WorkoutDay {
     @JsonIgnoreProperties("workoutDay")
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "day_exercise",
-            joinColumns = {@JoinColumn(name = "workout_id") },
-            inverseJoinColumns = { @JoinColumn(name = "day_id") })
+            joinColumns = {@JoinColumn(name = "day_id") },
+            inverseJoinColumns = { @JoinColumn(name = "workout_id") })
     private Set<WorkoutExercise> workouts = new HashSet<>();
 
     public Set<WorkoutExercise> getWorkouts() {

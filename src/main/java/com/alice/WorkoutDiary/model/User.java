@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,8 +31,8 @@ public class User {
     @JsonIgnoreProperties("user")
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_day",
-        joinColumns = {@JoinColumn(name = "day_id") },
-        inverseJoinColumns = { @JoinColumn(name = "user_id") })
+        joinColumns = {@JoinColumn(name = "user_id") },
+        inverseJoinColumns = { @JoinColumn(name = "day_id") })
     private Set<WorkoutDay> days = new HashSet<>();
 
     public User() {
@@ -59,7 +61,8 @@ public class User {
         this.email = email;
     }
 
-    public User(String email, String password) {
+    public User(String userName, String email, String password) {
+        this.userName = userName;
         this.email = email;
         this.password = password;
     }
@@ -98,6 +101,14 @@ public class User {
 
     public void setRegDate(String regDate) {
         this.regDate = regDate;
+    }
+
+    public void setDate() {
+        Date dateToFormat = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        String date = sdf.format(dateToFormat);
+        setRegDate(date);
     }
 
     public void setImage(String image) {

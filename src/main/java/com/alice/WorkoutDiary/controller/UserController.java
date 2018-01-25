@@ -1,46 +1,47 @@
 package com.alice.WorkoutDiary.controller;
 
-import com.alice.WorkoutDiary.dao.UserDAO;
-import com.alice.WorkoutDiary.handler.UserRepository;
+import com.alice.WorkoutDiary.dao.UserRepository;
 import com.alice.WorkoutDiary.model.User;
+import com.alice.WorkoutDiary.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.transaction.Transactional;
 
 @RestController
 public class UserController {
 
     @Autowired
-    UserDAO userHandler;
+    UserRepository userRepository;
 
     @Autowired
-    UserRepository userRepository;
+    UserService userService;
+
 
     @RequestMapping(value = "/")
     public String returnAString() {
          return "first page with some text";
     }
 
-    @RequestMapping(value = "/getUser")
-    public User returnUser(@RequestParam(required = true, value="id") int id) {
-        return userHandler.getUser(id);
-    }
-
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
-    public String welcomreReagal(@RequestParam(value="username", required = false, defaultValue = "World") String name) {
+    public String welcome(@RequestParam(value="username", required = false, defaultValue = "World") String name) {
         return "Hello " + name + " * - *";
     }
 
-    @RequestMapping(value = "/regUser", method = RequestMethod.POST, consumes = "application/json")
-    public void saveUser(@RequestBody User user) {
-        userHandler.saveUser(user);
-        System.out.println("I GOT THE USER: " + user);
+    @RequestMapping(value = "/findByName")
+    public User findByUserName(@RequestParam(required = true, value = "user_name") String user_name) {
+        return userService.findByUserName(user_name);
     }
 
-    @RequestMapping(value = "/findByName")
-    public User findByUserName(@RequestParam(required = true, value = "user_name") String user_name){
-        return userRepository.findByUserName(user_name);
+    @RequestMapping(value = "/getUserById")
+    public User findById(@RequestParam(required = true, value = "id") Integer userId) {
+        return userRepository.findByUserId(userId);
+    }
+
+    @RequestMapping(value = "/regUser", method = RequestMethod.POST, consumes = "application/json")
+    public User saveUser(@RequestBody User user) {
+        user.setDate();
+        System.out.println("I GOT THE USER: " + user);
+        return userRepository.save(user);
     }
 
 }
