@@ -14,21 +14,26 @@ import java.util.Map;
 public class UserController {
 
     @Autowired
-    UserRepository userRepository;
-
-    @Autowired
     UserService userService;
 
 
     @RequestMapping(value = "/")
-    public String returnAString() {
-         return "first page with some text";
+    public ResponseEntity<String> returnAString() {
+        return ResponseEntity.ok(userService.returnAString());
+       // return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
-    public String welcome(@RequestParam(value="username", required = false, defaultValue = "World") String name) {
-        return "Hello " + name + " * - *";
+    public ResponseEntity<String> welcome(@RequestParam(value="username", required = false, defaultValue = "World") String name) {
+        return ResponseEntity.ok(userService.welcome(name));
     }
+
+    //teszt postmannel
+    @RequestMapping(value = "/test", method = RequestMethod.POST)
+    public ResponseEntity<?> testMethod(@RequestBody Map<String, Object> valami) {
+        return ResponseEntity.ok().build();
+    }
+
 
     @RequestMapping(value = "/findByName")
     public ResponseEntity<User> findByUserName(@RequestParam(required = true, value = "user_name") String user_name) {
@@ -37,27 +42,33 @@ public class UserController {
             user = userService.findByUserName(user_name);
             return ResponseEntity.ok(user);
         } catch (IOException e) {
-            //return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
             return ResponseEntity.notFound().build();
         }
     }
 
     @RequestMapping(value = "/getUserById")
-    public User findById(@RequestParam(required = true, value = "id") Integer userId) {
-        return userRepository.findByUserId(userId);
+    public ResponseEntity<User> findById(@RequestParam(required = true, value = "id") Integer userId) {
+        User user;
+        try {
+            user = userService.findById(userId);
+            return ResponseEntity.ok(user);
+        } catch (IOException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @RequestMapping(value = "/regUser", method = RequestMethod.POST, consumes = "application/json")
-    public User saveUser(@RequestBody User user) {
-        user.setDate();
-        System.out.println("I GOT THE USER: " + user);
-        return userRepository.save(user);
+    public ResponseEntity<?> registerUser(@RequestBody User user) {
+        if (userService.emailNotExist(user.getEmail())) {
+            user.setDate();
+            System.out.println("I GOT THE USER: " + user);
+            userService.registerUser(user);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.status(500).body(String.format("Registration failed. Email address %s is already exist.", user.getEmail()));
+        }
+
     }
 
-    //teszt postmannel
-    @RequestMapping(value = "/test", method = RequestMethod.POST)
-    public ResponseEntity<?> testMethod(@RequestBody Map<String, Object> valami) {
-        return ResponseEntity.ok().build();
-    }
 
 }

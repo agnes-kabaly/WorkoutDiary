@@ -13,12 +13,40 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
+    public String returnAString() {
+        return "first page with some text";
+    }
+
+    public String welcome(String name) {
+        return "Hello " + name + " * - *";
+    }
+
     public User findByUserName(String user_name) throws IOException {
         if (userRepository.findByUserName(user_name) != null) {
             return userRepository.findByUserName(user_name);
         } else {
             throw new IOException();
         }
+    }
+
+    public User findById(Integer userId) throws IOException {
+        if (userRepository.findByUserId(userId) != null) {
+            return userRepository.findByUserId(userId);
+        } else {
+            throw new IOException();
+        }
+    }
+
+    public boolean emailNotExist(String email) {
+        if (userRepository.findByEmail(email) == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void registerUser(User user) {
+        userRepository.save(user);
     }
 
 }
