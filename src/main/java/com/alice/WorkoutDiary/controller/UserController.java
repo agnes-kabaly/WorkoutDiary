@@ -63,7 +63,7 @@ public class UserController {
             user.setDate();
             System.out.println("I GOT THE USER: " + user);
             userService.registerUser(user);
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok().body(String.format("Registration was success, with username: %s", user.getUserName()));
         } else {
             return ResponseEntity.status(500).body(String.format("Registration failed. Email address %s is already exist.", user.getEmail()));
         }
