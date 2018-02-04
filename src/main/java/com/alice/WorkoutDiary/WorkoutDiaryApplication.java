@@ -27,11 +27,11 @@ public class WorkoutDiaryApplication implements ServletContextListener {
 
 		User user1 = new User();
 
-		user1.setUserName("Ági2");
+		user1.setUserName("Alice");
 
-		user1.setEmail("vm@vm.com");
+		user1.setEmail("minta@minta.com");
 
-		user1.setPassword("123");
+		user1.setPassword("1235678");
 
 		user1.setRegDate("2018-01-24 11:39:28");
 
@@ -41,12 +41,15 @@ public class WorkoutDiaryApplication implements ServletContextListener {
 
 		WorkoutDay workoutDay1 = new WorkoutDay();
 		WorkoutDay workoutDay2 = new WorkoutDay();
+		WorkoutDay workoutDay3 = new WorkoutDay();
 
 		workoutDay1.setDayName("Leg Day");
 		workoutDay2.setDayName("Back Day");
+		workoutDay3.setDayName("Abs Day");
 
 		user1.addDays(workoutDay1);
 		user1.addDays(workoutDay2);
+		user1.addDays(workoutDay3);
 
 		WorkoutExercise exercise1 = new WorkoutExercise();
 		WorkoutExercise exercise2 = new WorkoutExercise();
@@ -61,6 +64,10 @@ public class WorkoutDiaryApplication implements ServletContextListener {
 		WorkoutExercise exercise10 = new WorkoutExercise();
 		WorkoutExercise exercise11 = new WorkoutExercise();
 		WorkoutExercise exercise12 = new WorkoutExercise();
+		WorkoutExercise exercise13 = new WorkoutExercise();
+		WorkoutExercise exercise14 = new WorkoutExercise();
+
+		WorkoutExercise exercise15 = new WorkoutExercise();
 
 		exercise1.setWorkoutName("Thigh Abductor");
 		exercise2.setWorkoutName("Squats");
@@ -75,6 +82,10 @@ public class WorkoutDiaryApplication implements ServletContextListener {
 		exercise10.setWorkoutName("One Arm Dumbbell Row");
 		exercise11.setWorkoutName("Seated Cable Row");
 		exercise12.setWorkoutName("Hyperextensions");
+		exercise13.setWorkoutName("Upright Row");
+		exercise14.setWorkoutName("Triceps Dips");
+
+		exercise15.setWorkoutName("Abdominal Crunch2");
 
 		exercise1.setWeight(30);
 		exercise2.setWeight(0);
@@ -89,6 +100,10 @@ public class WorkoutDiaryApplication implements ServletContextListener {
 		exercise10.setWeight(3);
 		exercise11.setWeight(15);
 		exercise12.setWeight(0);
+		exercise13.setWeight(3);
+		exercise14.setWeight(3);
+
+		exercise14.setWeight(0);
 
 		exercise1.setWorkoutSet(4);
 		exercise2.setWorkoutSet(4);
@@ -103,6 +118,10 @@ public class WorkoutDiaryApplication implements ServletContextListener {
 		exercise10.setWorkoutSet(3);
 		exercise11.setWorkoutSet(3);
 		exercise12.setWorkoutSet(4);
+		exercise13.setWorkoutSet(3);
+		exercise14.setWorkoutSet(3);
+
+		exercise15.setWorkoutSet(4);
 
 		exercise1.setRep(20);
 		exercise2.setRep(12);
@@ -117,6 +136,10 @@ public class WorkoutDiaryApplication implements ServletContextListener {
 		exercise10.setRep(12);
 		exercise11.setRep(12);
 		exercise12.setRep(20);
+		exercise13.setRep(10);
+		exercise14.setRep(10);
+
+		exercise15.setRep(20);
 
 		workoutDay1.addWorkouts(exercise1);
 		workoutDay1.addWorkouts(exercise2);
@@ -131,6 +154,10 @@ public class WorkoutDiaryApplication implements ServletContextListener {
 		workoutDay2.addWorkouts(exercise10);
 		workoutDay2.addWorkouts(exercise11);
 		workoutDay2.addWorkouts(exercise12);
+		workoutDay2.addWorkouts(exercise13);
+		workoutDay2.addWorkouts(exercise14);
+
+		workoutDay3.addWorkouts(exercise15);
 
 	}
 
