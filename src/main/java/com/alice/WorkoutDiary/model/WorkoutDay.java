@@ -17,6 +17,8 @@ public class WorkoutDay {
 
     private String dayName;
 
+    private String color;
+
     @JsonIgnoreProperties("workoutDay")
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "day_exercise",
@@ -44,8 +46,10 @@ public class WorkoutDay {
     public WorkoutDay() {
     }
 
-    public WorkoutDay(String dayName) {
+    public WorkoutDay(String dayName, String color, Set<WorkoutExercise> workouts) {
         this.dayName = dayName;
+        this.color = color;
+        this.workouts = workouts;
     }
 
     public String getDayName() {
@@ -56,4 +60,12 @@ public class WorkoutDay {
         this.dayName = dayName;
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+    
 }

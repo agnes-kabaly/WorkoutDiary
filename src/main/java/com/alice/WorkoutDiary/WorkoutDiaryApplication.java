@@ -47,6 +47,10 @@ public class WorkoutDiaryApplication implements ServletContextListener {
 		workoutDay2.setDayName("Back Day");
 		workoutDay3.setDayName("Abs Day");
 
+		workoutDay1.setColor("yellow");
+		workoutDay2.setColor("green");
+		workoutDay3.setColor("purple");
+
 		user1.addDays(workoutDay1);
 		user1.addDays(workoutDay2);
 		user1.addDays(workoutDay3);
