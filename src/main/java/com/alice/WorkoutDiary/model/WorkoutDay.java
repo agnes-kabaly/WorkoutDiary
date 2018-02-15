@@ -52,6 +52,11 @@ public class WorkoutDay {
         this.workouts = workouts;
     }
 
+    public WorkoutDay(String dayName, String color) {
+        this.dayName = dayName;
+        this.color = color;
+    }
+
     public String getDayName() {
         return dayName;
     }

@@ -1,6 +1,5 @@
 package com.alice.WorkoutDiary.controller;
 
-import com.alice.WorkoutDiary.dao.UserRepository;
 import com.alice.WorkoutDiary.model.User;
 import com.alice.WorkoutDiary.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +33,6 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
-
     @RequestMapping(value = "/findByName")
     public ResponseEntity<User> findByUserName(@RequestParam(required = true, value = "user_name") String user_name) {
         User user;
@@ -67,8 +65,6 @@ public class UserController {
         } else {
             return ResponseEntity.status(500).body(String.format("Registration failed. Email address %s is already exist.", user.getEmail()));
         }
-
     }
-
 
 }
