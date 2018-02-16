@@ -10,18 +10,22 @@ public class WorkoutExercise {
     @Column(name = "workout_id")
     private int workoutId;
 
+    @Column(name = "`key`")
+    private String key;
+
     private String workoutName;
 
-    private int weight;
+    private String weight;
 
-    private int workoutSet;
+    private String workoutSet;
 
-    private int rep;
+    private String rep;
 
     public WorkoutExercise() {
     }
 
-    public WorkoutExercise(String workoutName, int weight, int workoutSet, int rep) {
+    public WorkoutExercise(String key, String workoutName, String weight, String workoutSet, String rep) {
+        this.key = key;
         this.workoutName = workoutName;
         this.weight = weight;
         this.workoutSet = workoutSet;
@@ -32,15 +36,15 @@ public class WorkoutExercise {
         return workoutName;
     }
 
-    public int getWeight() {
+    public String getWeight() {
         return weight;
     }
 
-    public int getWorkoutSet() {
+    public String getWorkoutSet() {
         return workoutSet;
     }
 
-    public int getRep() {
+    public String getRep() {
         return rep;
     }
 
@@ -48,16 +52,24 @@ public class WorkoutExercise {
         this.workoutName = workoutName;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
 
-    public void setWorkoutSet(int workoutSet) {
+    public void setWorkoutSet(String workoutSet) {
         this.workoutSet = workoutSet;
     }
 
-    public void setRep(int rep) {
+    public void setRep(String rep) {
         this.rep = rep;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
 }

@@ -73,12 +73,28 @@ public class WorkoutDiaryApplication implements ServletContextListener {
 
 		WorkoutExercise exercise15 = new WorkoutExercise();
 
+		exercise1.setKey("abcd123");
+		exercise2.setKey("efgh123");
+		exercise3.setKey("abcd4567");
+		exercise4.setKey("abpqrs13");
+		exercise5.setKey("abxyzs238");
+		exercise6.setKey("nmpqr3987");
+
 		exercise1.setWorkoutName("Thigh Abductor");
 		exercise2.setWorkoutName("Squats");
 		exercise3.setWorkoutName("Lunges");
 		exercise4.setWorkoutName("Romanian Deadlift");
 		exercise5.setWorkoutName("Calf Raises");
 		exercise6.setWorkoutName("Abdominal Crunch");
+
+		exercise7.setKey("98765kpqr");
+		exercise8.setKey("2589hdkl");
+		exercise9.setKey("678sdhel");
+		exercise10.setKey("mnkbjh8798");
+		exercise11.setKey("jkjkjk89");
+		exercise12.setKey("26hd7j8k8");
+		exercise13.setKey("3h4km5km5");
+		exercise14.setKey("7f7djsk888");
 
 		exercise7.setWorkoutName("Pull Ups");
 		exercise8.setWorkoutName("Barbell Row");
@@ -89,61 +105,63 @@ public class WorkoutDiaryApplication implements ServletContextListener {
 		exercise13.setWorkoutName("Upright Row");
 		exercise14.setWorkoutName("Triceps Dips");
 
+		exercise15.setKey("8d8d8d8d8");
+
 		exercise15.setWorkoutName("Abdominal Crunch2");
 
-		exercise1.setWeight(30);
-		exercise2.setWeight(0);
-		exercise3.setWeight(5);
-		exercise4.setWeight(15);
-		exercise5.setWeight(4);
-		exercise6.setWeight(0);
+		exercise1.setWeight("30");
+		exercise2.setWeight("0");
+		exercise3.setWeight("5");
+		exercise4.setWeight("15");
+		exercise5.setWeight("4");
+		exercise6.setWeight("0");
 
-		exercise7.setWeight(0);
-		exercise8.setWeight(15);
-		exercise9.setWeight(15);
-		exercise10.setWeight(3);
-		exercise11.setWeight(15);
-		exercise12.setWeight(0);
-		exercise13.setWeight(3);
-		exercise14.setWeight(3);
+		exercise7.setWeight("0");
+		exercise8.setWeight("15");
+		exercise9.setWeight("15");
+		exercise10.setWeight("3");
+		exercise11.setWeight("15");
+		exercise12.setWeight("0");
+		exercise13.setWeight("3");
+		exercise14.setWeight("3");
 
-		exercise14.setWeight(0);
+		exercise14.setWeight("0");
 
-		exercise1.setWorkoutSet(4);
-		exercise2.setWorkoutSet(4);
-		exercise3.setWorkoutSet(4);
-		exercise4.setWorkoutSet(3);
-		exercise5.setWorkoutSet(4);
-		exercise6.setWorkoutSet(3);
+		exercise1.setWorkoutSet("4");
+		exercise2.setWorkoutSet("4");
+		exercise3.setWorkoutSet("4");
+		exercise4.setWorkoutSet("3");
+		exercise5.setWorkoutSet("4");
+		exercise6.setWorkoutSet("3");
 
-		exercise7.setWorkoutSet(3);
-		exercise8.setWorkoutSet(3);
-		exercise9.setWorkoutSet(3);
-		exercise10.setWorkoutSet(3);
-		exercise11.setWorkoutSet(3);
-		exercise12.setWorkoutSet(4);
-		exercise13.setWorkoutSet(3);
-		exercise14.setWorkoutSet(3);
+		exercise7.setWorkoutSet("3");
+		exercise8.setWorkoutSet("3");
+		exercise9.setWorkoutSet("3");
+		exercise10.setWorkoutSet("3");
+		exercise11.setWorkoutSet("3");
+		exercise12.setWorkoutSet("4");
+		exercise13.setWorkoutSet("3");
+		exercise14.setWorkoutSet("3");
 
-		exercise15.setWorkoutSet(4);
+		exercise15.setWorkoutSet("4");
 
-		exercise1.setRep(20);
-		exercise2.setRep(12);
-		exercise3.setRep(20);
-		exercise4.setRep(16);
-		exercise5.setRep(20);
-		exercise6.setRep(24);
+		exercise1.setRep("20");
+		exercise2.setRep("12");
+		exercise3.setRep("20");
+		exercise4.setRep("16");
+		exercise5.setRep("20");
+		exercise6.setRep("24");
 
-		exercise7.setRep(10);
-		exercise8.setRep(10);
-		exercise9.setRep(10);
-		exercise10.setRep(12);
-		exercise11.setRep(12);
-		exercise12.setRep(20);
-		exercise13.setRep(10);
-		exercise14.setRep(10);
+		exercise7.setRep("10");
+		exercise8.setRep("10");
+		exercise9.setRep("10");
+		exercise10.setRep("12");
+		exercise11.setRep("12");
+		exercise12.setRep("20");
+		exercise13.setRep("10");
+		exercise14.setRep("10");
 
-		exercise15.setRep(20);
+		exercise15.setRep("20");
 
 		workoutDay1.addWorkouts(exercise1);
 		workoutDay1.addWorkouts(exercise2);
