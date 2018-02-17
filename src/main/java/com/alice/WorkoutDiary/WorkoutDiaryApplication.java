@@ -109,41 +109,41 @@ public class WorkoutDiaryApplication implements ServletContextListener {
 
 		exercise15.setWorkoutName("Abdominal Crunch2");
 
-		exercise1.setWeight("30");
-		exercise2.setWeight("0");
-		exercise3.setWeight("5");
-		exercise4.setWeight("15");
-		exercise5.setWeight("4");
-		exercise6.setWeight("0");
+		exercise1.setWeight("30 kg");
+		exercise2.setWeight("0 kg");
+		exercise3.setWeight("5 kg");
+		exercise4.setWeight("15 kg");
+		exercise5.setWeight("4 kg");
+		exercise6.setWeight("0 kg");
 
-		exercise7.setWeight("0");
-		exercise8.setWeight("15");
-		exercise9.setWeight("15");
-		exercise10.setWeight("3");
-		exercise11.setWeight("15");
-		exercise12.setWeight("0");
-		exercise13.setWeight("3");
-		exercise14.setWeight("3");
+		exercise7.setWeight("0 kg");
+		exercise8.setWeight("15 kg");
+		exercise9.setWeight("15 kg");
+		exercise10.setWeight("3 kg");
+		exercise11.setWeight("15 kg");
+		exercise12.setWeight("0 kg");
+		exercise13.setWeight("3 kg");
+		exercise14.setWeight("3 kg");
 
-		exercise14.setWeight("0");
+		exercise15.setWeight("0 kg");
 
-		exercise1.setWorkoutSet("4");
-		exercise2.setWorkoutSet("4");
-		exercise3.setWorkoutSet("4");
-		exercise4.setWorkoutSet("3");
-		exercise5.setWorkoutSet("4");
-		exercise6.setWorkoutSet("3");
+		exercise1.setWorkoutSet("4 x");
+		exercise2.setWorkoutSet("4 x");
+		exercise3.setWorkoutSet("4 x");
+		exercise4.setWorkoutSet("3 x");
+		exercise5.setWorkoutSet("4 x");
+		exercise6.setWorkoutSet("3 x");
 
-		exercise7.setWorkoutSet("3");
-		exercise8.setWorkoutSet("3");
-		exercise9.setWorkoutSet("3");
-		exercise10.setWorkoutSet("3");
-		exercise11.setWorkoutSet("3");
-		exercise12.setWorkoutSet("4");
-		exercise13.setWorkoutSet("3");
-		exercise14.setWorkoutSet("3");
+		exercise7.setWorkoutSet("3 x");
+		exercise8.setWorkoutSet("3 x");
+		exercise9.setWorkoutSet("3 x");
+		exercise10.setWorkoutSet("3 x");
+		exercise11.setWorkoutSet("3 x");
+		exercise12.setWorkoutSet("4 x");
+		exercise13.setWorkoutSet("3 x");
+		exercise14.setWorkoutSet("3 x");
 
-		exercise15.setWorkoutSet("4");
+		exercise15.setWorkoutSet("4 x");
 
 		exercise1.setRep("20");
 		exercise2.setRep("12");
