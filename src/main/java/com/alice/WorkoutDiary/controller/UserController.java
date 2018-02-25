@@ -15,7 +15,6 @@ public class UserController {
     @Autowired
     UserService userService;
 
-
     @RequestMapping(value = "/")
     public ResponseEntity<String> returnAString() {
         return ResponseEntity.ok(userService.returnAString());

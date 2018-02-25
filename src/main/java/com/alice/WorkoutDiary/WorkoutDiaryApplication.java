@@ -145,23 +145,23 @@ public class WorkoutDiaryApplication implements ServletContextListener {
 
 		exercise15.setWorkoutSet("4 x");
 
-		exercise1.setRep("20");
-		exercise2.setRep("12");
-		exercise3.setRep("20");
-		exercise4.setRep("16");
-		exercise5.setRep("20");
-		exercise6.setRep("24");
+		exercise1.setRep("20 db");
+		exercise2.setRep("12 db");
+		exercise3.setRep("20 db");
+		exercise4.setRep("16 db");
+		exercise5.setRep("20 db");
+		exercise6.setRep("24 db");
 
-		exercise7.setRep("10");
-		exercise8.setRep("10");
-		exercise9.setRep("10");
-		exercise10.setRep("12");
-		exercise11.setRep("12");
-		exercise12.setRep("20");
-		exercise13.setRep("10");
-		exercise14.setRep("10");
+		exercise7.setRep("10 db");
+		exercise8.setRep("10 db");
+		exercise9.setRep("10 db");
+		exercise10.setRep("12 db");
+		exercise11.setRep("12 db");
+		exercise12.setRep("20 db");
+		exercise13.setRep("10 db");
+		exercise14.setRep("10 db");
 
-		exercise15.setRep("20");
+		exercise15.setRep("20 db");
 
 		workoutDay1.addWorkouts(exercise1);
 		workoutDay1.addWorkouts(exercise2);
