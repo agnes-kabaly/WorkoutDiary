@@ -35,5 +35,22 @@ public class WorkoutExerciseController {
         }
     }
 
+    @PutMapping(value = "/editExercise", consumes = "application/json")
+    public ResponseEntity<String> updateExercise(@RequestBody WorkoutExercise workoutExercise) {
+        WorkoutExercise exercise;
+        try {
+            exercise = workoutExerciseService.findByKey(workoutExercise.getKey());
+            exercise.setKey(workoutExercise.getKey());
+            exercise.setWorkoutName(workoutExercise.getWorkoutName());
+            exercise.setWeight(workoutExercise.getWeight());
+            exercise.setWorkoutSet(workoutExercise.getWorkoutSet());
+            exercise.setRep(workoutExercise.getRep());
+            workoutExerciseService.addExercise(exercise);
+            return ResponseEntity.ok().body(String.format("Exercise: %s, Updated", exercise.getWorkoutName()));
+        } catch (IOException e) {
+            return ResponseEntity.status(500).body("Failed to update Exercise.");
+        }
+    }
+
 
 }
