@@ -4,10 +4,7 @@ import com.alice.WorkoutDiary.model.WorkoutExercise;
 import com.alice.WorkoutDiary.service.WorkoutExerciseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
@@ -26,5 +23,17 @@ public class WorkoutExerciseController {
             return ResponseEntity.status(500).body("Failed to save Exercise.");
         }
     }
+
+    @RequestMapping(value = "/getExerciseByKey")
+    public ResponseEntity<WorkoutExercise> findByKey(@RequestParam(required = true, value = "key") String key) {
+        WorkoutExercise workoutExercise;
+        try {
+            workoutExercise = workoutExerciseService.findByKey(key);
+            return ResponseEntity.ok(workoutExercise);
+        } catch (IOException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
 }

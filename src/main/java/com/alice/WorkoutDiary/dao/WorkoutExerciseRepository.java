@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface WorkoutExerciseRepository extends JpaRepository<WorkoutExercise, Long> {
 
     WorkoutExercise save(WorkoutExercise workoutExercise);
+    WorkoutExercise findByKey(String key);
 
 }

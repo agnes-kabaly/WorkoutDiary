@@ -21,4 +21,12 @@ public class WorkoutExerciseService {
         }
     }
 
+    public WorkoutExercise findByKey(String key) throws IOException {
+        if (workoutExerciseRepository.findByKey(key) != null) {
+            return workoutExerciseRepository.findByKey(key);
+        } else {
+            throw new IOException();
+        }
+    }
+
 }
