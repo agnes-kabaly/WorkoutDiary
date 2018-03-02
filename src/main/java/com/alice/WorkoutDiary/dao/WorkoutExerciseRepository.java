@@ -9,5 +9,6 @@ public interface WorkoutExerciseRepository extends JpaRepository<WorkoutExercise
 
     WorkoutExercise save(WorkoutExercise workoutExercise);
     WorkoutExercise findByKey(String key);
+    void delete(WorkoutExercise workoutExercise);
 
 }
