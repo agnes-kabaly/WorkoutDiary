@@ -1,8 +1,6 @@
 package com.alice.WorkoutDiary;
 
-import com.alice.WorkoutDiary.model.User;
-import com.alice.WorkoutDiary.model.WorkoutDay;
-import com.alice.WorkoutDiary.model.WorkoutExercise;
+import com.alice.WorkoutDiary.model.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -29,7 +27,7 @@ public class WorkoutDiaryApplication implements ServletContextListener {
 
 		user1.setUserName("Alice");
 
-		user1.setEmail("minta@minta.com");
+		user1.setEmail("alice@minta.com");
 
 		user1.setPassword("1235678");
 
@@ -180,6 +178,31 @@ public class WorkoutDiaryApplication implements ServletContextListener {
 		workoutDay2.addWorkouts(exercise14);
 
 		workoutDay3.addWorkouts(exercise15);
+
+		Calendar calendar1 = new Calendar();
+		Calendar calendar2 = new Calendar();
+		Calendar calendar3 = new Calendar();
+		Calendar calendar4 = new Calendar();
+
+		calendar1.setDate("2018-10-24");
+		calendar2.setDate("2018-10-25");
+		calendar3.setDate("2018-10-26");
+		calendar4.setDate("2018-10-29");
+
+		calendar1.setState(State.COMPLETED);
+		calendar2.setState(State.ABORTED);
+		calendar3.setState(State.IMPROVED);
+		calendar4.setState(State.DESCENDED);
+
+		calendar1.setColor("yellow");
+		calendar2.setColor("green");
+		calendar3.setColor("purple");
+		calendar4.setColor("green");
+
+		user1.addCalendars(calendar1);
+		user1.addCalendars(calendar2);
+		user1.addCalendars(calendar3);
+		user1.addCalendars(calendar4);
 
 	}
 

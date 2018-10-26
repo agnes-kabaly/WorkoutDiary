@@ -31,9 +31,16 @@ public class User {
     @JsonIgnoreProperties("user")
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_day",
-        joinColumns = {@JoinColumn(name = "user_id") },
+        joinColumns = { @JoinColumn(name = "user_id") },
         inverseJoinColumns = { @JoinColumn(name = "day_id") })
     private Set<WorkoutDay> days = new HashSet<>();
+
+    @JsonIgnoreProperties("user")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "user_calendar",
+        joinColumns = { @JoinColumn(name = "user_id") },
+        inverseJoinColumns = { @JoinColumn(name = "calendar_id")})
+    private Set<Calendar> calendars = new HashSet<>();
 
     public User() {
 
@@ -65,6 +72,16 @@ public class User {
         this.userName = userName;
         this.email = email;
         this.password = password;
+    }
+
+    public User(String userName, String email, String password, String regDate, String image, Set<WorkoutDay> days, Set<Calendar> calendars) {
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+        this.regDate = regDate;
+        this.image = image;
+        this.days = days;
+        this.calendars = calendars;
     }
 
     public String getUserName() {
@@ -130,6 +147,15 @@ public class User {
 
     public void deleteDay(WorkoutDay day) {
         this.days.remove(day);
+    }
+
+    @JsonDeserialize(as = HashSet.class)
+    public void setCalendars(Set<Calendar> calendars) {this.calendars = calendars; }
+
+    public void addCalendars(Calendar calendar) { this.calendars.add(calendar); }
+
+    public Set<Calendar> getCalendars() {
+        return calendars;
     }
 
     @Override
