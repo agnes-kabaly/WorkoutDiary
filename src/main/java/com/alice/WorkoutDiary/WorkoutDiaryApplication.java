@@ -184,10 +184,10 @@ public class WorkoutDiaryApplication implements ServletContextListener {
 		Calendar calendar3 = new Calendar();
 		Calendar calendar4 = new Calendar();
 
-		calendar1.setDate("2018-10-24");
-		calendar2.setDate("2018-10-25");
-		calendar3.setDate("2018-10-26");
-		calendar4.setDate("2018-10-29");
+		calendar1.setDate("2018-11-14");
+		calendar2.setDate("2018-11-15");
+		calendar3.setDate("2018-11-16");
+		calendar4.setDate("2018-11-20");
 
 		calendar1.setState(State.COMPLETED);
 		calendar2.setState(State.ABORTED);
