@@ -2,14 +2,11 @@ package com.alice.WorkoutDiary.controller;
 
 import com.alice.WorkoutDiary.model.WorkoutExercise;
 import com.alice.WorkoutDiary.service.WorkoutExerciseService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 @RestController
 public class WorkoutExerciseController {
@@ -56,19 +53,14 @@ public class WorkoutExerciseController {
     }
 
     @DeleteMapping(value = "/deleteExercise", consumes = "application/json")
-    public ResponseEntity<String> deleteExercise(@RequestBody Map<String, Object> json) {
+    public ResponseEntity<String> deleteExercise(
+            @RequestParam(value = "key") String key, @RequestParam(value = "dayId") String dayId) {
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            LinkedHashMap<?, ?> linkedDayId = (LinkedHashMap) json.get("dayId");
-            LinkedHashMap<?, ?> linkedExerciseKey = (LinkedHashMap) json.get("workoutExerciseKey");
-            Integer dayId = mapper.convertValue(linkedDayId.get("dayId"), Integer.class);
-            String exKey = mapper.convertValue(linkedExerciseKey.get("key"), String.class);
-            workoutExerciseService.deleteExercise(dayId, exKey);
+            workoutExerciseService.deleteExercise(Integer.valueOf(dayId), key);
             return ResponseEntity.ok().body(String.format("Exercise - Deleted"));
         } catch (IOException e) {
             return ResponseEntity.status(500).body("Failed to Delete.");
         }
     }
-
 
 }
