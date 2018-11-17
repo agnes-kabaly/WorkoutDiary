@@ -8,6 +8,7 @@
         <class>com.alice.WorkoutDiary.model.User</class>
         <class>com.alice.WorkoutDiary.model.WorkoutDay</class>
         <class>com.alice.WorkoutDiary.model.WorkoutExercise</class>
+        <class>com.alice.WorkoutDiary.model.Calendar</class>
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
         </properties>
