@@ -25,12 +25,8 @@ public class WorkoutDayService {
         }
     }
 
-    public void addNewDay(WorkoutDay workoutDay) throws IOException {
-        if (workoutDayRepository.save(workoutDay) != null) {
-            workoutDayRepository.save(workoutDay);
-        } else {
-            throw new IOException();
-        }
+    public boolean addNewDay(WorkoutDay workoutDay) {
+        return workoutDayRepository.save(workoutDay) != null;
     }
 
     public void userCreateNewDay(Integer userId, WorkoutDay workoutDay) {
