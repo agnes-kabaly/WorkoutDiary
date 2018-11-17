@@ -25,15 +25,11 @@ public class CalendarService {
         }
     }
 
-    public void addNewCalendar(Calendar calendar) throws IOException {
-        if (calendarRepository.save(calendar) != null) {
-            calendarRepository.save(calendar);
-        } else {
-            throw new IOException();
-        }
+    public boolean addNewCalendar(Calendar calendar) {
+        return calendarRepository.save(calendar) != null;
     }
 
-    public void userCreateNewCalendar(Integer userId, Calendar calendar) {
+    public void userCreateNewCalendar(Integer userId, Calendar calendar) throws IOException {
         User user;
         try {
             user = userService.findById(userId);

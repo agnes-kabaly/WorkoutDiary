@@ -38,15 +38,11 @@ public class UserService {
     }
 
     public boolean emailNotExist(String email) {
-        if (userRepository.findByEmail(email) == null) {
-            return true;
-        } else {
-            return false;
-        }
+        return userRepository.findByEmail(email) == null;
     }
 
-    public void registerUser(User user) {
-        userRepository.save(user);
+    public boolean registerUser(User user) {
+        return userRepository.save(user) != null;
     }
 
 }

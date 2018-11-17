@@ -17,12 +17,8 @@ public class WorkoutExerciseService {
     @Autowired
     WorkoutDayService workoutDayService;
 
-    public void addExercise(WorkoutExercise workoutExercise) throws IOException {
-        if (workoutExerciseRepository.save(workoutExercise) != null) {
-            workoutExerciseRepository.save(workoutExercise);
-        } else {
-            throw new IOException();
-        }
+    public boolean addExercise(WorkoutExercise workoutExercise) throws IOException {
+        return workoutExerciseRepository.save(workoutExercise) != null;
     }
 
     public WorkoutExercise findByKey(String key) throws IOException {
