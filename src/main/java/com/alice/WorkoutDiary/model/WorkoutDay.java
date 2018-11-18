@@ -31,7 +31,7 @@ public class WorkoutDay {
     }
 
     @JsonDeserialize(as = HashSet.class)
-    public void setWorkouts(Set<WorkoutExercise> days) {
+    public void setWorkouts(Set<WorkoutExercise> workouts) {
         this.workouts = workouts;
     }
 
