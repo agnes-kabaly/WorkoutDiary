@@ -1,9 +1,11 @@
 package com.alice.WorkoutDiary.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 import java.util.Set;
 
+@Data
 public class NewDayDto {
 
     @JsonProperty("workoutDay")
@@ -11,13 +13,5 @@ public class NewDayDto {
 
     @JsonProperty("exercises")
     private Set<WorkoutExercise> workouts;
-
-    public WorkoutDay getWorkoutDay() {
-        return workoutDay;
-    }
-
-    public Set<WorkoutExercise> getWorkouts() {
-        return workouts;
-    }
 
 }

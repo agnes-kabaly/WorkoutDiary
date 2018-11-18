@@ -2,11 +2,15 @@ package com.alice.WorkoutDiary.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Data
+@NoArgsConstructor
 @Entity
 public class WorkoutDay {
 
@@ -41,40 +45,6 @@ public class WorkoutDay {
 
     public void deleteWorkout(WorkoutExercise workout) {
         this.workouts.remove(workout);
-    }
-
-    public WorkoutDay() {
-    }
-
-    public WorkoutDay(String dayName, String color, Set<WorkoutExercise> workouts) {
-        this.dayName = dayName;
-        this.color = color;
-        this.workouts = workouts;
-    }
-
-    public WorkoutDay(String dayName, String color) {
-        this.dayName = dayName;
-        this.color = color;
-    }
-
-    public String getDayName() {
-        return dayName;
-    }
-
-    public void setDayName(String dayName) {
-        this.dayName = dayName;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public int getDayId() {
-        return dayId;
     }
 
 }
