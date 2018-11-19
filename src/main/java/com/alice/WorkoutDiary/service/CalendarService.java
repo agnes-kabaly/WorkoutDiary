@@ -31,6 +31,7 @@ public class CalendarService {
 
     public void userCreateNewCalendar(Integer userId, Calendar calendar) throws IOException {
         User user;
+        addNewCalendar(calendar);
         try {
             user = userService.findById(userId);
             user.addCalendars(calendar);

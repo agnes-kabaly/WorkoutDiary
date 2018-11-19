@@ -38,7 +38,6 @@ public class WorkoutDayController {
             for (WorkoutExercise workoutExercise : newDayDto.getWorkouts()) {
                 workoutExerciseService.addExercise(workoutExercise);
             }
-            workoutDayService.addNewDay(newDayDto.getWorkoutDay());
             workoutDayService.userCreateNewDay(userId, newDayDto.getWorkoutDay());
             return ResponseEntity.ok().body(String.format("New day added, with day name: %s", newDayDto.getWorkoutDay().getDayName()));
         } catch (IOException e) {

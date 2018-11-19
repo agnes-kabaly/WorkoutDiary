@@ -29,8 +29,9 @@ public class WorkoutDayService {
         return workoutDayRepository.save(workoutDay) != null;
     }
 
-    public void userCreateNewDay(Integer userId, WorkoutDay workoutDay) {
+    public void userCreateNewDay(Integer userId, WorkoutDay workoutDay) throws IOException {
         User user;
+        addNewDay(workoutDay);
         try {
             user = userService.findById(userId);
             user.addDays(workoutDay);

@@ -30,7 +30,6 @@ public class CalendarController {
             @RequestParam(value = "userId") Integer userId,
             @RequestBody Calendar calendar) {
         try {
-            calendarService.addNewCalendar(calendar);
             calendarService.userCreateNewCalendar(userId, calendar);
             return ResponseEntity.ok().body(String.format("Calendar date added with status: %s", calendar.getState()));
         } catch (IOException e) {
