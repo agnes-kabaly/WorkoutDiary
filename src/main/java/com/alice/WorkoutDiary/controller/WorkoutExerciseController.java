@@ -40,11 +40,12 @@ public class WorkoutExerciseController {
         WorkoutExercise exercise;
         try {
             exercise = workoutExerciseService.findByKey(workoutExercise.getKey());
-            exercise.setKey(workoutExercise.getKey());
-            exercise.setWorkoutName(workoutExercise.getWorkoutName());
-            exercise.setWeight(workoutExercise.getWeight());
-            exercise.setWorkoutSet(workoutExercise.getWorkoutSet());
-            exercise.setRep(workoutExercise.getRep());
+            exercise.builder()
+                    .key(workoutExercise.getKey())
+                    .workoutName(workoutExercise.getWorkoutName())
+                    .weight(workoutExercise.getWeight())
+                    .rep(workoutExercise.getRep())
+                    .build();
             workoutExerciseService.addExercise(exercise);
             return ResponseEntity.ok().body(String.format("Exercise: %s - Updated", exercise.getWorkoutName()));
         } catch (IOException e) {
