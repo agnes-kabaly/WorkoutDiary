@@ -44,4 +44,17 @@ public class WorkoutDayController {
             return ResponseEntity.status(500).body("Day save wasn't successful.");
         }
     }
+
+    //http://localhost:8080/deleteDay?userId=1&dayId=1
+    @DeleteMapping(value = "/deleteDay", consumes = "application/json")
+    public ResponseEntity<String> deleteDay(
+            @RequestParam(value = "userId") Integer userId, @RequestParam(value = "dayId") Integer dayId) {
+        try {
+            workoutDayService.deleteDay(userId, dayId);
+            return ResponseEntity.ok().body("Day - Deleted");
+        } catch (IOException e) {
+            return ResponseEntity.status(500).body("Failed to Delete Day");
+        }
+    }
+
 }

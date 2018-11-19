@@ -41,4 +41,18 @@ public class WorkoutDayService {
         }
     }
 
+    public void deleteDay(Integer userId, Integer dayId) throws IOException {
+        User user;
+        WorkoutDay workoutDay;
+        try {
+            workoutDay = findById(dayId);
+            user = userService.findById(userId);
+            user.getDays().remove(workoutDay);
+            workoutDayRepository.delete(workoutDay);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
